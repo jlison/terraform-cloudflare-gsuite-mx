@@ -15,6 +15,12 @@ variable "ttl" {
   type        = number
 }
 
+variable "spf" {
+  default     = "v=spf1 include:_spf.google.com ~all"
+  description = "SPF record (optional)"
+  type        = string
+}
+
 variable "dkim" {
   default     = ""
   description = "DKIM key (optional)"
@@ -30,5 +36,17 @@ variable "dmarc" {
 variable "google_site_verification" {
   default     = ""
   description = "Google site verification TXT record value (optional)"
+  type        = string
+}
+
+variable "mta_sts" {
+  default     = ""
+  description = "MTA-STS specification (optional)"
+  type        = string
+}
+
+variable "smtp_tls" {
+  default     = ""
+  description = "SMTP-TLS specification (optional)"
   type        = string
 }
