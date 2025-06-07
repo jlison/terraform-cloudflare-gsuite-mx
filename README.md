@@ -7,7 +7,7 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "~> 3.0"
+      version = "~> 4.39.0"
     }
   }
 }
@@ -18,7 +18,7 @@ provider "cloudflare" {
 
 module "email" {
   source                   = "jlison/gsuite-mx/cloudflare"
-  version                  = "1.1.0"
+  version                  = "2.0.0"
   zone_id                  = var.cloudflare_zone_id
   sub_domain               = "@" #optional
   ttl                      = 3600 #optional
