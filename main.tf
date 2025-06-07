@@ -10,7 +10,7 @@ resource "cloudflare_record" "mx" {
   zone_id  = var.zone_id
   name     = var.sub_domain
   type     = "MX"
-  value    = each.value.server
+  content  = each.value.server
   ttl      = var.ttl
   priority = each.value.priority
 }
@@ -19,7 +19,7 @@ resource "cloudflare_record" "spf" {
   zone_id = var.zone_id
   name    = var.sub_domain
   type    = "TXT"
-  value   = var.spf
+  content = var.spf
   ttl     = var.ttl
 }
 
@@ -28,7 +28,7 @@ resource "cloudflare_record" "dkim" {
   zone_id = var.zone_id
   name    = "google._domainkey"
   type    = "TXT"
-  value   = var.dkim
+  content = var.dkim
   ttl     = var.ttl
 }
 
@@ -37,7 +37,7 @@ resource "cloudflare_record" "dmarc" {
   zone_id = var.zone_id
   name    = "_dmarc"
   type    = "TXT"
-  value   = var.dmarc
+  content = var.dmarc
   ttl     = var.ttl
 }
 
@@ -46,7 +46,7 @@ resource "cloudflare_record" "google_site_verification" {
   zone_id = var.zone_id
   name    = var.sub_domain
   type    = "TXT"
-  value   = var.google_site_verification
+  content = var.google_site_verification
   ttl     = var.ttl
 }
 
@@ -55,7 +55,7 @@ resource "cloudflare_record" "mta_sts" {
   zone_id = var.zone_id
   name    = "_mta-sts"
   type    = "TXT"
-  value   = var.mta_sts
+  content = var.mta_sts
   ttl     = var.ttl
 }
 
@@ -64,6 +64,6 @@ resource "cloudflare_record" "smtp_tls" {
   zone_id = var.zone_id
   name    = "_smtp._tls"
   type    = "TXT"
-  value   = var.smtp_tls
+  content = var.smtp_tls
   ttl     = var.ttl
 }
